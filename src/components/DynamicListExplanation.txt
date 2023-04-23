@@ -1,0 +1,94 @@
+
+DYNAMIC LIST CODE EXPLANATION:
+- We created a new component called DynamicList. This component uses the 
+useState hook to manage two state variables: menuItems and selectedItem.
+
+- The menuItems state variable is an array of objects that represent the 
+menu items, while the selectedItem state variable is a string that represents 
+the currently selected menu item.
+
+- Each menu item is represented by an object with four properties: text, 
+onClick, active, and message. The text property is a string that represents
+the text of the menu item, while the onClick property is a function that will 
+be called when the menu item is clicked. The active property is a boolean that 
+indicates whether the menu item is currently active. The message property is a 
+string that represents a custom message for the clicked menu item.
+
+- We used the styled-components library to define the styles for the menu 
+items and their container. The MenuWrapper component is a styled ul element 
+that displays the menu items in a row with even spacing. 
+
+- The MenuItem component is a styled li element that displays the text of 
+the menu item and changes its background color when it is hovered over or 
+clicked.
+
+MENU ITEM COLOR EXLAINED:
+
+    ${({ active }) => (active ? "cyan" : "transparent")}
+
+- The background-color property is being set using the value of the active 
+prop. If the active prop is truthy, meaning it has a value of true, then the 
+background color is set to "cyan". Otherwise, the background color is set to 
+"transparent".
+- The ${({ active }) => (active ? "cyan" : "transparent")} syntax is a 
+template literal that contains a function. The function takes the active prop 
+as its argument and returns a string based on the condition 
+(active ? "cyan" : "transparent").
+
+Here's a more detailed breakdown of what's happening:
+
+    - The MenuItem component is a styled li element that takes an active prop.
+    - The value of the background-color property is set to 
+    ${({ active }) => (active ? "cyan" : "transparent")}.
+    - The ${({ active }) => (active ? "cyan" : "transparent")} syntax is a 
+    template literal that contains a function. This function takes an object 
+    as its argument, which contains the active prop as one of its properties.
+    - The function returns "cyan" if active is truthy, otherwise it returns 
+    "transparent".
+    - When the MenuItem component is rendered, the value of the active prop 
+    is passed to the function in the template literal. The function returns 
+    either "cyan" or "transparent", depending on the value of active.
+    - The resulting value is used as the value of the background-color 
+    property for the rendered li element.
+    - In summary, this code uses a function in a template literal to 
+    conditionally set the value of the background-color property based 
+    on the value of the active prop.
+
+- When a menu item is clicked, the handleItemClick function is called. This 
+function updates the active property of the clicked menu item and sets the 
+selectedItem state variable to the message property of the clicked menu item.
+
+HANDLE ITEM CLICK EXPLAINED:
+
+   const newMenuItems = [...menuItems];
+    newMenuItems.forEach((item, i) => {
+      item.active = i === index;
+    });
+
+    - The handleItemClick function takes an index argument, which represents 
+    the index of the clicked menu item in the menuItems array.
+    - The newMenuItems variable is assigned the value of a new array created 
+    by spreading the menuItems array. This creates a shallow copy of the 
+    menuItems array, so that we can modify it without affecting the original 
+    array.
+    - The forEach method is called on the newMenuItems array, which iterates 
+    over each item in the array.
+    - For each item in the array, the active property is set to a boolean 
+    value that represents whether the item is the clicked menu item. This 
+    is done by comparing the index of the current item with the index argument
+    passed to the function. If the two values are equal, then the active 
+    property is set to true. Otherwise, the active property is set to false.
+    - After all of the items in the array have been iterated over and 
+    their active properties have been updated, the newMenuItems array is 
+    passed to the setMenuItems function to update the menuItems state 
+    variable.
+
+In summary, this code creates a copy of the menuItems state array, sets 
+the active property of the clicked menu item to true, and updates the 
+menuItems state variable with the modified array.
+
+- We rendered the DynamicList component inside the App component, which is 
+rendered in the entry point file (index.tsx or main.tsx). The DynamicList 
+component displays the menu items and the custom message for the currently 
+selected menu item in the UI.
+

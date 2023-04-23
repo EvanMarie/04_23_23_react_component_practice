@@ -1,0 +1,53 @@
+   - We import the necessary modules, including useState from React 
+   and styled from styled-components.
+
+   -  We define the ColorPicker functional component that returns 
+   JSX. This component takes two props: colors and onChange.
+
+    - We use the useState hook to initialize the selectedColor 
+    state variable to the first color in the colors array.
+
+    - We define the handleColorClick function that takes a color 
+    argument and sets the selectedColor state variable to that color.
+
+    - We define the Color styled component, which is a div element 
+    that has a background-color property that is set to the color prop.
+
+    - We define the ColorWrapper styled component, which is a div element 
+    that has a display property set to flex, and we use it to wrap each 
+    Color component.
+
+    - We return the ColorPicker component, which maps over the colors
+    prop and renders a Color component for each color. We pass the color 
+    and selectedColor state variable to each Color component, and we use 
+    the handleColorClick function as the click handler for each Color 
+    component.
+
+    - We also render a div element that displays the currently selected 
+    color using the selectedColor state variable.
+
+REACT CHANGE EVENT EXPLAINED:
+
+    const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setColor(event.target.value);
+  };
+
+    - In React, forms are often used to collect user input. When a user 
+    types something into an input field, a change event is triggered.
+    React provides a type called ChangeEvent that we can use to define the 
+    type of event object being passed to the event handler function.
+
+    - In this code, handleColorChange is an event handler function that is 
+    called whenever the user changes the value of the color input field. 
+    event is the argument passed to the function, which is an instance of 
+    the ChangeEvent type.
+
+    - The input field has a value attribute that holds the current value 
+    of the input field, which in this case is the color selected by the 
+    user. event.target.value refers to the value of the element that 
+    triggered the event, in this case the color input field.
+
+    - setColor is a state updater function, which sets the color state 
+    variable to the value of the color input field. In this way, the 
+    component is able to update the color being displayed in real time as 
+    the user selects a new color.

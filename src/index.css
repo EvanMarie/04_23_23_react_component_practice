@@ -1,0 +1,8 @@
+/* This code centers the content of the page */
+
+html,
+body {
+  background-color: #222222;
+  margin: 0;
+  padding: 0;
+}

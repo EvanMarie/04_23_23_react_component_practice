@@ -1,0 +1,41 @@
+   LITTLE IMAGES CODE EXPLANATION:
+   
+    - The interface MenuItemProps defines the type of each object that will 
+    be in the menuItems array. It has four properties: text (a string 
+    representing the name of the item), onClick (a function that will be 
+    called when the item is clicked), active (a boolean indicating whether or 
+    not the item is currently active), and image (a string representing the
+    URL of the image for the item).
+
+    - The LittleImages component is defined, which contains the state for 
+    the menuItems array and the selectedItem string using useState.
+
+    - The MenuWrapper and MenuItem styled components are defined using 
+    styled-components. MenuWrapper is a ul that will hold all of the menu 
+    items, and MenuItem is an li representing each individual menu item. 
+    active is a prop that is passed to MenuItem to determine whether or 
+    not the item is currently active.
+
+    - The Selected styled component is defined, which will display the 
+    selected item's image.
+
+    - The handleItemClick function is defined to handle when a menu item 
+    is clicked. It takes the index of the clicked item as an argument and 
+    sets the active property of the corresponding menuItems object to true, 
+    and all other objects to false. It then sets the selectedItem state to 
+    the image URL of the clicked item.
+
+    - The menuItems array is mapped over in the MenuWrapper JSX element to
+    create the menu items. Each MenuItem is passed a key and an onClick 
+    function that calls handleItemClick with the index of the item. The 
+    active prop is passed to each MenuItem based on the active property 
+    of its corresponding object in the menuItems array. The text for each 
+    item is rendered as a child of the MenuItem.
+
+    - The Selected JSX element is rendered if selectedItem state is not 
+    an empty string. The img element is passed the src attribute with 
+    the value of selectedItem and the alt attribute with the value of 
+    "Selected Item".
+
+    - The LittleImages component is exported as the default export of 
+    the file.
